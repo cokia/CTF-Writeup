@@ -3,8 +3,8 @@
 
 ### 부제 : 2018 정보보호영재교육원 CTF
 
-###(대구 5등 전국 28등)
-![ㅠㅠㅠ](https://ibb.co/frXFnf)
+### (대구 5등 전국 28등)
+![](https://ibb.co/frXFnf)
 
 ## 일반
 일반문제는 단순한 검색문제였기때문에 (법률) 생략한다.
@@ -137,12 +137,13 @@ Router(config)# enable password whoisthewinnerofkeris2018
     FLAG2{ Ev3r_u5ed_ittttt? }
     ```
 3. **enable shell 에 접속하기 위한 패스워드**의 암호화 된 값을 볼 수 있는 명령어를 이용하여 암호화 된 패스워드의 값을 확인하고, 해당 값을 FLAG3으로 입력하시오.
+
 ```
 Router(config)# exit
 Router# show running-config
  enable secret 5 $1$mERr$ATL1hEB9UJOrNnI6iWy.R/ 
  enable password 7 08364441000A111F171C050A242E3627353E27010E0551510701
-```
+		```
 사실 여기서 문제 오류가 있었다... 문제에 볼드된 부분이 enable secret 으로 나와있어서..저거때문에 2시간을 해맸다...
 그래서 secret 암호화 키를 넣어도 답이 안나오고... 저걸 복호화 할려니까 브루트포스인데 한시간째 답이안나오고..혹시 해서 password 를 넣었더니 인증이 되었다..
 
@@ -158,6 +159,7 @@ flag{C15c0_Pack3t_Tr4c3r_H4ve_U_Ev3r_u5ed_ittttt_08364441000A111F171C050A242E362
 ### 1.rev1 - hand-ray(?) (300p)
 음 어셈을 아냐고 물어보면서 gdb로 disassembly 한걸 파일에 넣어서 준다.
 사실 디게 쉬운문제였는데 내가 어셈을 잘 몰라서 못풀었다.(아쉽)
+
 ```
 gdb-peda$ disas main
 Dump of assembler code for function main:
