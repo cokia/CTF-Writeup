@@ -1,10 +1,10 @@
 # KERIS 제 4회 정보보안경진대회 
-##대구대 - 한우영(h4nuko0n)
+## 대구대 - 한우영(h4nuko0n)
 
 ### 부제 : 2018 정보보호영재교육원 CTF
 
 ### (대구 5등 전국 28등)
-![](https://ibb.co/frXFnf)
+![](https://user-images.githubusercontent.com/24792377/47960749-f6ed2480-e042-11e8-9c2b-ad42c69db1b8.jpg)
 
 ## 일반
 일반문제는 단순한 검색문제였기때문에 (법률) 생략한다.
@@ -88,9 +88,9 @@ flag=w3_give_@dviCe_bUT_w3_CaNnoT_give_C0NdUct
 
 ### 1.net1 - Findme (300p)
 쉬운 문제였다. 그냥 wireshark 로 열고 **find string (packet byte)**로 해서 `flag{` 를 검색했더니 잘린듯한 패킷이 바로나왔다.
-![네떡](https://ibb.co/ks6cYL)
+![](https://user-images.githubusercontent.com/24792377/47960782-5c411580-e043-11e8-868b-e1e7591c15a8.png)
 이 패킷을 찾은 후 상단바에서 Analysis -> Follow -> TCP strem 에 가서 다시 `flag{`를 검색하면 플래그가 나온다.
-![네떡2](https://ibb.co/bCZpDL)
+![](https://user-images.githubusercontent.com/24792377/47960980-04f07480-e046-11e8-97d0-286f3cb76457.png)
 
 FLAG IS : `flag{N3tw0rk_Ch@llenge_SOlv3d!_Congr@tz!!}`
 
@@ -125,6 +125,7 @@ FLAG IS : ```flag{SIMPLYsm00thL1GH7purpl3}```
 ```
 
 2. 라우터의 이름을 keris2018로 설정하고, enable secret을 keris2018secret로, enable password를 whoisthewinnerofkeris2018 로 설정하는 명령어를 차례대로 입력하고 FLAG2{ } 를 획득하시오.
+
 ```
 Router> enable
 Router# configure terminal
@@ -135,7 +136,7 @@ Router(config)# enable secret keris2018secret
 Router(config)# enable password whoisthewinnerofkeris2018
     [+] Ok, you set enable password
     FLAG2{ Ev3r_u5ed_ittttt? }
-    ```
+ ```
 3. **enable shell 에 접속하기 위한 패스워드**의 암호화 된 값을 볼 수 있는 명령어를 이용하여 암호화 된 패스워드의 값을 확인하고, 해당 값을 FLAG3으로 입력하시오.
 
 ```
@@ -143,7 +144,7 @@ Router(config)# exit
 Router# show running-config
  enable secret 5 $1$mERr$ATL1hEB9UJOrNnI6iWy.R/ 
  enable password 7 08364441000A111F171C050A242E3627353E27010E0551510701
-		```
+ ```
 사실 여기서 문제 오류가 있었다... 문제에 볼드된 부분이 enable secret 으로 나와있어서..저거때문에 2시간을 해맸다...
 그래서 secret 암호화 키를 넣어도 답이 안나오고... 저걸 복호화 할려니까 브루트포스인데 한시간째 답이안나오고..혹시 해서 password 를 넣었더니 인증이 되었다..
 
@@ -228,7 +229,7 @@ gdb-peda$
 `$.#%96-&#;b+1b!.-7&;lb1-b/;b$''.+,%b+1b,-6b%--&b'+6*'0l?`
 이런 문자열을 주는데 키는 한자리라고 했으니 브루트 포스를 돌리니 플래그가 나왔다.
 
-### 2.crypto2 - 	스키테일 (400p)
+### 2.crypto2 - 스키테일 (400p)
 사실 이것도 문제가 외부망에만 있었으면 풀 수 있었을텐데..
 그냥 문자열 던져주고 2초안에 입력이 안나오면 끝난다. 스키테일 암호이고 
 이걸 푼 사람이 많이 없었던걸로 기억한다.
@@ -241,7 +242,7 @@ https://www.dcode.fr/scytale-cipher 여기서 노가다해서 평문을 찾아 �
 
 인생을 날로먹기위해 기도하면 Profit!!!
 
-![zxczxc](https://www.google.co.kr/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj60fPjgLreAhUJw7wKHZzUB-UQjRx6BAgBEAU&url=https%3A%2F%2Ftheqoo.net%2Fsquare%2F675810605&psig=AOvVaw1ol8hqKqS4Qt3A27gkGF4U&ust=1541395648187371)
+![](https://user-images.githubusercontent.com/24792377/47960807-c659ba80-e043-11e8-806f-38814d684e4e.JPG)
 
 ### 3.crypto3 - Raspberry (500p)
 사실 이것도 못풀었다.
